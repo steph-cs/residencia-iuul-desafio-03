@@ -1,6 +1,12 @@
 
 export abstract class Pessoa {
 
+  constructor(
+    private _nome: string,
+    private _cpf: string,
+    private _telefone: string
+  ) {}
+
   public get telefone(): string {
     return this._telefone;
   }
@@ -19,11 +25,5 @@ export abstract class Pessoa {
   public set nome(value: string) {
     this._nome = value;
   }
-
-  constructor(
-    private _nome: string,
-    private _cpf: string,
-    private _telefone: string
-  ) { }
 
 }

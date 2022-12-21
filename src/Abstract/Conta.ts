@@ -1,4 +1,4 @@
-abstract class Conta {
+export abstract class Conta {
   constructor(
     private numero: string
   ) {}
