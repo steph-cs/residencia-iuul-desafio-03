@@ -1,7 +1,8 @@
 import { Pessoa } from "../Abstract/Pessoa";
+import { IUsuario } from "../IUsuario";
 import { Cargo } from "./Cargo";
 
-export class Funcionario extends Pessoa {
+export class Funcionario extends Pessoa implements IUsuario {
 
   private cargos: Cargo[] = [];
 
@@ -16,6 +17,10 @@ export class Funcionario extends Pessoa {
     this.cargos.push(...cargos);
   }
   
+  public autenticar(): boolean{
+    return true;
+  }
+
   public get salario(): number {
     return this._salario;
   }

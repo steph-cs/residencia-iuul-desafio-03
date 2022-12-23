@@ -1,7 +1,8 @@
 import { Pessoa } from "../Abstract/Pessoa";
+import { IUsuario } from "../IUsuario";
 import { Endereco } from "./Endereco";
 
-export class Cliente extends Pessoa {
+export class Cliente extends Pessoa implements IUsuario {
   private enderecos: Endereco[] = [];
 
   constructor(
@@ -13,6 +14,10 @@ export class Cliente extends Pessoa {
   ) {
     super(nome, cpf, telefone);
     this.enderecos.push(...enderecos);
+  }
+  
+  public autenticar(): boolean{
+    return true;
   }
 
   /*getter / setter */
