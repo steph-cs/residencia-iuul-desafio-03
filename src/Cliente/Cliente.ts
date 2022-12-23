@@ -9,10 +9,10 @@ export class Cliente extends Pessoa {
     nome: string,
     cpf: string,
     telefone: string,
-    endereco: Endereco
+    enderecos: Endereco[]
   ) {
     super(nome, cpf, telefone);
-    this.enderecos.push(endereco);
+    this.enderecos.push(...enderecos);
   }
 
   /*getter / setter */
@@ -25,22 +25,25 @@ export class Cliente extends Pessoa {
   }
 
   /*endereco */
-  public addEndereco(endereco: Endereco) {
-    this.enderecos.push(endereco);
+  public addEnderecos(enderecos: Endereco[]) {
+    this.enderecos.push(...enderecos);
   }
 
-  public removeEndereco(enderecoRemover: Endereco) {
-    /*se existe mais de um endereco cadastrado; remove */
-    if (this.enderecos.length > 1) {
-      this.enderecos.forEach(endereco => {
-        if (endereco == enderecoRemover) {
-          let index: number = this.enderecos.indexOf(endereco);
-          this.enderecos.splice(index, 1);
-          console.log("Endereço removido!")
-        }
+  public removerEnderecos(enderecosRemover: Endereco[]) {
+    /*se numero de enderecos cadastrados maior enderecos a remover; remove */
+    if (this.enderecos.length > enderecosRemover.length) {
+      enderecosRemover.forEach(enderecoRemover => {
+        this.enderecos.forEach(endereco => {
+          if (endereco == enderecoRemover) {
+            let index: number = this.enderecos.indexOf(endereco);
+            this.enderecos.splice(index, 1);
+            console.log("Endereço removido!");
+          }
+        });
+        console.log(`Cliente não possui o endereco cadastrado: \n ${enderecoRemover.toString()}`);
       });
     } else {
-      console.log("Cliente deve possuir pelo menos um endereço cadastrado!")
+      console.log("Cliente deve possuir pelo menos um endereço cadastrado!");
     }
 
   }

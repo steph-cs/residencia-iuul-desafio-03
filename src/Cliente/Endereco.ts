@@ -10,6 +10,17 @@ export class Endereco {
     private _uf: string
   ) {}
 
+  public toString(){
+    return `Endereço{
+      _cep: ${this.cep} 
+      _logradouro: ${this.logradouro},
+      _numero: ${this.numero},
+      _complemento: ${this.complemento},
+      _cidade: ${this.cidade},
+      _uf: ${this.uf}
+      }`
+  }
+
   public get uf(): string {
     return this._uf;
   }
@@ -28,7 +39,7 @@ export class Endereco {
   public set complemento(value: string) {
     this._complemento = value;
   }
-  public get nunmero(): string {
+  public get numero(): string {
     return this._numero;
   }
   public set numero(value: string) {
