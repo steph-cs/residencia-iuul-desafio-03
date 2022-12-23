@@ -1,3 +1,4 @@
+
 export class Endereco {
 
   constructor(
@@ -8,13 +9,6 @@ export class Endereco {
     private _cidade: string,
     private _uf: string
   ) {}
-
-  toString() : string {
-    return `Endereco: \n 
-    Cep: ${this._cep} \n 
-    Logradouro: ${this._logradouro} Numero: ${this._numero}\n 
-    Cidade: ${this._cidade} UF: ${this._uf} \n`
-  }
 
   public get uf(): string {
     return this._uf;
@@ -52,6 +46,5 @@ export class Endereco {
   public set cep(value: string) {
     this._cep = value;
   }
-
 
 }
