@@ -7,6 +7,7 @@ export abstract class Pessoa {
     private _telefone: string
   ) {}
 
+  /*getter / setter */
   public get telefone(): string {
     return this._telefone;
   }
