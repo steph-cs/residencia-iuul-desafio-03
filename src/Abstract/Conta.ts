@@ -36,20 +36,37 @@ export abstract class Conta {
 
   /*----*/
 
-  public depositar(valor: number) {
-    let credito: Credito = new Credito(valor, new Date());
+  public depositar(valor: number, data?: Date) {
+    let credito: Credito;
+
+    //credito padrao data atual
+    credito = new Credito(valor, new Date());
+    //se foi passado uma data enta gera credito c a data
+    if(typeof data !== "undefined"){
+      credito = new Credito(valor, data);
+    }
+    //adiciona credito lista de creditos
     this.creditos.push(credito);
   }
 
-  public sacar(valor: number) {
+  public sacar(valor: number, data?: Date) {
+    var saque: boolean = false;
+    let debito: Debito;
+
+    //debito padrao data atual
+    debito = new Debito(valor, new Date());
+    //se foi passado uma data enta gera debito c a data
+    if(typeof data !== "undefined"){
+      debito = new Debito(valor, data);
+    }
     /*se saldo maior ou igual ao valor de saque */
     if (this.calcularSaldo() >= valor) {
-      let debito: Debito = new Debito(valor, new Date());
       this.debitos.push(debito);
+      saque = true;
     } else {
       console.log("Cliente não possui saldo suficiente!");
-      return 0;
     }
+    return saque;
   }
 
   abstract calcularSaldo(): number;

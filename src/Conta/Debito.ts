@@ -1,4 +1,4 @@
-class Debito{
+export class Debito{
   
   constructor(
     private _valor: number,

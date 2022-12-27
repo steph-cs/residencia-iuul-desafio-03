@@ -1,22 +1,45 @@
 import { Conta } from "../Abstract/Conta";
 
-class ContaCorrente {
-  constructor(
-      private _limite: number
-  ) {}
+export class ContaCorrente extends Conta {
 
+  constructor(
+    private _limite: number,
+    _numero: string
+  ) {
+    super(_numero);
+  }
+
+  /*getter / setter */
   public get limite(): number {
     return this._limite;
   }
+  
   public set limite(value: number) {
     this._limite = value;
   }
- 
-  transferir(contaDestino: Conta, valor: number){
-    /*to do */
+
+  /*----*/
+
+  public transferir(contaDestino: Conta, valor: number) {
+    /*se saldo maior ou igual ao valor de saque */
+    if(this.sacar(valor)) {
+      contaDestino.depositar(valor);
+    }
   }
 
-  calcularSaldo(){
-    /*to do */
+  public calcularSaldo(): number {
+    let saldo: number = 0;
+    //soma creditos
+    this.creditos.forEach(credito => {
+      saldo += credito.valor;
+    });
+    //subtrai debitos
+    this.debitos.forEach(debito => {
+      saldo -= debito.valor;
+    })
+    //soma limite
+    saldo += this.limite;
+    return saldo;
   }
+
 }
