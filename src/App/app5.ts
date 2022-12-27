@@ -27,12 +27,13 @@ const conta1: ContaPoupanca = new ContaPoupanca(1, "444");
 const cliente1 = new Cliente(true, "Stephanie", "123.123.123-12", "(99)9 9999-9999", [endereco1], [conta1]);
 
 /*Transacoes */
-let data: Date = new Date("2022-1-1");
-for (let i = 0; i < 12; i++) {
-  conta1.depositar(1000, data);
+
+for (let i = 1; i <= 12; i++) {
+  let data: Date = new Date(`2022-${i}-15`);
+  conta1.depositar(200, data);
 }
 
 conta1.sacar(100, new Date("2022-3-5"));
-conta1.sacar(100, new Date("2022-7-8"));
+conta1.sacar(200, new Date("2022-7-8"));
 
 console.log("Saldo conta 1: R$" + conta1.calcularSaldo())
