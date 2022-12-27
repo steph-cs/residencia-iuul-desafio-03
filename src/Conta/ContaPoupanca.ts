@@ -66,8 +66,9 @@ export class ContaPoupanca extends Conta {
       saldo -= debito.valor;
     })
     //soma rendimento
-
-    saldo += this.calcularRendimento();
+    if(saldo > 0){
+      saldo += this.calcularRendimento();
+    }
     return saldo;
   }
 }

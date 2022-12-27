@@ -20,11 +20,18 @@ export class ContaCorrente extends Conta {
 
   /*----*/
 
-  public transferir(contaDestino: Conta, valor: number) {
-    /*se saldo maior ou igual ao valor de saque */
-    if(this.sacar(valor)) {
-      contaDestino.depositar(valor);
+  public transferir(contaDestino: Conta, valor: number, data?: Date) {
+    if(typeof data !== "undefined"){
+       /*se saldo maior ou igual ao valor de saque */
+      if(this.sacar(valor, data)) {
+        contaDestino.depositar(valor, data);
+      }
+    }else{
+      if(this.sacar(valor)) {
+        contaDestino.depositar(valor);
+      }
     }
+    
   }
 
   public calcularSaldo(): number {

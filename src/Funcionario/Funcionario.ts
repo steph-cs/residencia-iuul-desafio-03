@@ -1,5 +1,5 @@
 import { Pessoa } from "../Abstract/Pessoa";
-import { IUsuario } from "../IUsuario";
+import { IUsuario } from "../Interface/IUsuario";
 import { Cargo } from "./Cargo";
 
 export class Funcionario extends Pessoa implements IUsuario {
@@ -16,8 +16,8 @@ export class Funcionario extends Pessoa implements IUsuario {
     super(nome, cpf, telefone);
     this.cargos.push(...cargos);
   }
-  
-  public autenticar(): boolean{
+
+  public autenticar(): boolean {
     return true;
   }
 
@@ -27,7 +27,7 @@ export class Funcionario extends Pessoa implements IUsuario {
   public set salario(value: number) {
     this._salario = value;
   }
-  
+
   /*cargo */
   public addcargos(cargos: Cargo[]) {
     this.cargos.push(...cargos);

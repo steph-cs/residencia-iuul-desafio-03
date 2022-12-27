@@ -1,6 +1,6 @@
 import { Conta } from "../Abstract/Conta";
 import { Pessoa } from "../Abstract/Pessoa";
-import { IUsuario } from "../IUsuario";
+import { IUsuario } from "../Interface/IUsuario";
 import { Endereco } from "./Endereco";
 
 export class Cliente extends Pessoa implements IUsuario {
@@ -19,9 +19,9 @@ export class Cliente extends Pessoa implements IUsuario {
     this.enderecos.push(...enderecos);
     this.contas.push(...contas);
   }
-  
+
   /*IUsuario */
-  public autenticar(): boolean{
+  public autenticar(): boolean {
     return true;
   }
 
