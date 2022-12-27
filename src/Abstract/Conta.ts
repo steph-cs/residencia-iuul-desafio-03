@@ -39,13 +39,16 @@ export abstract class Conta {
   public depositar(valor: number, data?: Date) {
     let credito: Credito;
 
-    //credito padrao data atual
-    credito = new Credito(valor, new Date());
     //se foi passado uma data enta gera credito c a data
     if(typeof data !== "undefined"){
       credito = new Credito(valor, data);
+    }else{
+      data = new Date();
+      //credito padrao data atual
+      credito = new Credito(valor, new Date());
     }
     //adiciona credito lista de creditos
+    console.log(`Deposito de R$${valor} data: ${data.toLocaleDateString()} efetuado!`);
     this.creditos.push(credito);
   }
 
@@ -53,16 +56,20 @@ export abstract class Conta {
     var saque: boolean = false;
     let debito: Debito;
 
-    //debito padrao data atual
-    debito = new Debito(valor, new Date());
     //se foi passado uma data enta gera debito c a data
     if(typeof data !== "undefined"){
       debito = new Debito(valor, data);
+    }else{
+      data = new Date();
+      //debito padrao data atual
+      debito = new Debito(valor, data);
     }
+    
     /*se saldo maior ou igual ao valor de saque */
     if (this.calcularSaldo() >= valor) {
       this.debitos.push(debito);
       saque = true;
+      console.log(`Saque de R$${valor} data: ${data.toLocaleDateString()} efetuado!`);
     } else {
       console.log("Cliente não possui saldo suficiente!");
     }
