@@ -48,7 +48,7 @@ export class ContaPoupanca extends Conta {
         })
         //calculo rendimento ate data atual
         let anosMeses = (dataAtual.getFullYear() - (anoInicio + i)) * 12;
-        let numMeses = ((anosMeses + 12) - (m + 1));
+        let numMeses = (anosMeses - m);
         rendimentoTotal += numMeses * (rendimentoMes * this.rentabilidadeMensal / 100);
       }
     }
@@ -66,7 +66,7 @@ export class ContaPoupanca extends Conta {
       saldo -= debito.valor;
     })
     //soma rendimento
-    if(saldo > 0){
+    if (saldo > 0) {
       saldo += this.calcularRendimento();
     }
     return saldo;
