@@ -47,13 +47,9 @@ export class Cliente extends Pessoa implements IUsuario {
           if (endereco == enderecoRemover) {
             let index: number = this.enderecos.indexOf(endereco);
             this.enderecos.splice(index, 1);
-            console.log("Endereço removido!");
           }
         });
-        console.log(`Cliente não possui o endereco cadastrado: \n ${enderecoRemover.toString()}`);
       });
-    } else {
-      console.log("Cliente deve possuir pelo menos um endereço cadastrado!");
     }
 
   }
@@ -75,15 +71,10 @@ export class Cliente extends Pessoa implements IUsuario {
           if (conta == contaRemover) {
             let index: number = this.contas.indexOf(conta);
             this.contas.splice(index, 1);
-            console.log("Conta removido!");
           }
         });
-        console.log(`Cliente não possui a conta cadastrado: \n ${contaRemover.toString()}`);
       });
-    } else {
-      console.log("Cliente deve possuir pelo menos um conta cadastrado!");
     }
-
   }
 
   public listarContas() {

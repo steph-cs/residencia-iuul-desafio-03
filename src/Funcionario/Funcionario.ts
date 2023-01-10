@@ -41,13 +41,9 @@ export class Funcionario extends Pessoa implements IUsuario {
           if (cargo == cargoRemover) {
             let index: number = this.cargos.indexOf(cargo);
             this.cargos.splice(index, 1);
-            console.log("Cargo removido!");
           }
         });
-        console.log(`Funcionário não possui o cargo cadastrado: \n ${cargoRemover.toString()}`);
       });
-    } else {
-      console.log("Funcionário deve possuir pelo menos um cargo cadastrado!");
     }
   }
 

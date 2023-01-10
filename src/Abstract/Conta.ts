@@ -48,7 +48,6 @@ export abstract class Conta {
       credito = new Credito(valor, new Date());
     }
     //adiciona credito lista de creditos
-    console.log(`Deposito de R$${valor} data: ${data.toLocaleDateString()} efetuado!`);
     this.creditos.push(credito);
   }
 
@@ -69,9 +68,6 @@ export abstract class Conta {
     if (this.calcularSaldo() >= valor) {
       this.debitos.push(debito);
       saque = true;
-      console.log(`Saque de R$${valor} data: ${data.toLocaleDateString()} efetuado!`);
-    } else {
-      console.log("Cliente não possui saldo suficiente!");
     }
     return saque;
   }
