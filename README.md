@@ -10,10 +10,6 @@ Projeto visando a prática com a linguagem TypeScript; conceitos de Programaçã
   <img src="https://user-images.githubusercontent.com/61119367/221699562-af1f97ce-9ea8-4cce-a013-0efd8f5d1b03.png" alt="diagrama" height="500px"/>
 </p>
 
-## 🔨 Funcionalidades do projeto
-
-- `Funcionalidade 1` ``: 
-
 ## ✔️ Tecnologias utilizadas
 
 - ``TypeScript``
