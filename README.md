@@ -1,6 +1,5 @@
 ## Residência IUUL - Desafio 03: Desenvolvimento de aplicação OO utilizando Typescript
-# :bank: Conversor de Moedas
-
+# :bank: Banco
 <p>
 Aplicação console em typescript representando as classes propostas juntamente com seus relacionamentos conforme diagrama a seguir.
 Projeto visando a prática com a linguagem TypeScript; conceitos de Programação Orientada a Objetos.
